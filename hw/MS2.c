@@ -21,15 +21,13 @@ int main()
 {
 
 char *buf;
-rl_bind_key('\t',rl_abort);//disable auto-complete
+rl_bind_key('\t',rl_abort);
 while((buf = readline("$ "))!=NULL)
 
 {
 
 if (strcmp(buf,"exit")==0 || strcmp(buf, "Exit")==0)
 	break;
-	//printf(" %s \n", buf);
-
 
 char *argv[100];
 
@@ -42,14 +40,14 @@ pid_t pid,a;
 int s;
 pid=fork();
 
-if(pid > 0) { //parrent
+if(pid > 0) {
 	a = wait(&s);
 	}
-else { //child
+else {
 	execvp(*argv, argv);
 	printf("Error");
 	break;
-	}
+}
 
 
 
